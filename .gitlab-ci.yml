@@ -20,6 +20,8 @@ format:
       - go fmt
       - go vet
 #       - go test -race $(go list ./... | grep -v /vendor/)
+    only:
+      - master
 
 compile:
     stage: build
@@ -30,6 +32,8 @@ compile:
     artifacts:
       paths:
         - gohttp
+    only:
+      - master
 
 testenv:
     stage: deploy
