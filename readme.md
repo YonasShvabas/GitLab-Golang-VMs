@@ -7,10 +7,16 @@ git remote add origin http://mygitlab.westus2.cloudapp.azure.com/root/Simple-Gol
 git add .  
 git commit -m "Initial commit"  
 git push -u origin master  
-# to sync files from local to git after edit  
+# to sync edited locally files from local to remote 
 git add . 
 git commit -m "v1"  
 git push -u origin master  
+# change branch
+git branch
+git checkout -b prod
+git add .
+git commit -m "prod commit"
+git push origin master
 
 ## CREATE .gitlab-ci.yml
 ```
