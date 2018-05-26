@@ -31,29 +31,26 @@ compile:
       paths:
         - gohttp
 
-
 testenv:
     stage: deploy
-	only:
-      - master
     tags:
       - test
     script:
       - sudo service gohttp stop
       - cp -f /usr/lib/go-1.6/src/$REPO_NAME/gohttp /usr/local/bin/
       - sudo service gohttp start
+    only:
+      - master
 
 prodenv:
-	stage: deploy
-	only:
-      - production
-	tags:
+    stage: deploy
+    tags:
       - prod
-	dependencies:
-      - testenv
-  	script:
+    script:
       - sudo service gohttp stop
       - ls -la $CI_PROJECT_DIR
       - sudo service gohttp start
-
-
+    only:
+      - production
+    dependencies:
+      - compile
