@@ -1,3 +1,4 @@
+# https://docs.gitlab.com/ee/ci/yaml/
 image: golang:latest
 
 variables:
@@ -20,8 +21,6 @@ format:
       - go fmt
       - go vet
 #       - go test -race $(go list ./... | grep -v /vendor/)
-    only:
-      - master
 
 compile:
     stage: build
@@ -32,8 +31,6 @@ compile:
     artifacts:
       paths:
         - gohttp
-    only:
-      - master
 
 testenv:
     stage: deploy
@@ -43,8 +40,6 @@ testenv:
       - sudo service gohttp stop
       - cp -f /usr/lib/go-1.6/src/$REPO_NAME/gohttp /usr/local/bin/
       - sudo service gohttp start
-    only:
-      - master
 
 prodenv:
     stage: deploy
