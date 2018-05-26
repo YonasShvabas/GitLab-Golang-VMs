@@ -1,12 +1,11 @@
 image: golang:latest
 
 variables:
-  REPO_NAME: myproject
+  REPO_NAME: gohttp
 
 before_script:
-  - whoami
-  - mkdir -p /usr/lib/go-1.6/src/$REPO_NAME
-  - cd /usr/lib/go-1.6/src/$REPO_NAME
+  - mkdir -p /usr/local/src/$REPO_NAME
+  - cd /usr/local/src/$REPO_NAME
 
 stages:
     - test
@@ -27,10 +26,10 @@ compile:
     tags:
       - test
     script:
-      - go build -race -ldflags "-extldflags '-static'" -o $CI_PROJECT_DIR/binary
+      - go build -race -ldflags "-extldflags '-static'" -o bin/gohttp
     artifacts:
       paths:
-        - binary
+        - gohttp
 
 
 run:
@@ -38,5 +37,6 @@ run:
     tags:
       - test
     script:
-      - $CI_PROJECT_DIR/binary
+      - echo $CI_PROJECT_DIR
+      - bin/gohttp/binary
 
