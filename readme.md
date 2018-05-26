@@ -11,12 +11,12 @@ git push -u origin master
 git add . 
 git commit -m "v1"  
 git push -u origin master  
-# change branch
+# change branch to prod
 git branch
 git checkout -b prod
 git add .
 git commit -m "prod commit"
-git push origin master
+git push origin prod
 
 ## CREATE .gitlab-ci.yml
 ```
