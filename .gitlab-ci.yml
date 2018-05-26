@@ -38,7 +38,7 @@ testenv:
       - test
     script:
       - sudo service gohttp stop
-      - cp -f /usr/lib/go-1.6/src/$REPO_NAME/gohttp /usr/local/bin/
+      - cp -fv /usr/lib/go-1.6/src/$REPO_NAME/gohttp /usr/local/bin/
       - sudo service gohttp start
 
 prodenv:
@@ -47,7 +47,7 @@ prodenv:
       - prod
     script:
       - sudo service gohttp stop
-      - cp -f /usr/lib/go-1.6/src/$REPO_NAME/gohttp /usr/local/bin/
+      - cp -fv /usr/lib/go-1.6/src/$REPO_NAME/gohttp /usr/local/bin/
       - sudo service gohttp start
     only:
       - production

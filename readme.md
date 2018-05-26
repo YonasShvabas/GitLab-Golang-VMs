@@ -4,8 +4,7 @@ git config --global user.email "blackover@yandex.ru"
 cd "C:\Users\Yonas\go\src\Simple-Golang-HTTP-Server"  
 git init  
 git remote add origin http://mygitlab.westus2.cloudapp.azure.com/root/Simple-Golang-HTTP-Server.git  
-git add .  
-git commit -m "Initial commit"  
+git git commit -a -m "Initial commit"  
 git push -u origin master  
 # to sync edited locally files from local to remote 
 git add . 
@@ -14,8 +13,7 @@ git push -u origin master
 # change branch to production
 git branch
 git checkout -b production
-git add .
-git commit -m "production commit"
+git commit -a -m "production commit"
 git push origin production
 
 ## CREATE .gitlab-ci.yml
