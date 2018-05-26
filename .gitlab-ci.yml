@@ -5,7 +5,7 @@ variables:
 
 before_script:
   - echo $CI_PROJECT_DIR
-  - ln -svf $CI_PROJECT_DIR /usr/local/src
+  - ln -svf $CI_PROJECT_DIR /usr/lib/go-1.6/src
 # '/usr/local/src/gohttp/Simple-Golang-HTTP-Server' -> '/home/gitlab-runner/builds/4e9c8eeb/0/root/Simple-Golang-HTTP-Server'
   - cd /usr/local/src/$REPO_NAME
 
