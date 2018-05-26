@@ -5,8 +5,8 @@ variables:
 
 before_script:
   - echo $CI_PROJECT_DIR
-  - mkdir -p /usr/local/src/$REPO_NAME
-  - ln -svf $CI_PROJECT_DIR /usr/local/src/$REPO_NAME
+  - ln -svf $CI_PROJECT_DIR /usr/local/src
+# '/usr/local/src/gohttp/Simple-Golang-HTTP-Server' -> '/home/gitlab-runner/builds/4e9c8eeb/0/root/Simple-Golang-HTTP-Server'
   - cd /usr/local/src/$REPO_NAME
 
 stages:
@@ -40,5 +40,4 @@ run:
       - test
     script:
       - echo $CI_PROJECT_DIR
-      - bin/gohttp/binary
-
+      - bin/gohttp
