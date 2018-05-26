@@ -2,8 +2,8 @@
 git config --global user.name "Yonas"
 git config --global user.email "blackover@yandex.ru"
 cd "C:\Users\Yonas\go\src\Simple-Golang-HTTP-Server"
- git init
- git remote add origin http://mygitlab.westus2.cloudapp.azure.com/root/Simple-Golang-HTTP-Server.git
+git init
+git remote add origin http://mygitlab.westus2.cloudapp.azure.com/root/Simple-Golang-HTTP-Server.git
 git add .
 git commit -m "Initial commit"
 git push -u origin master
@@ -13,6 +13,7 @@ git commit -m "v1"
 
 
 ## CREATE .gitlab-ci.yml
+```
 image: golang:latest
 variables:
   REPO_NAME: Simple-Golang-HTTP-Server
@@ -48,7 +49,7 @@ run:
       - sudo service gohttp stop
       - cp -f /usr/lib/go-1.6/src/$REPO_NAME/gohttp /usr/local/bin/
       - sudo service gohttp start
-
+```
 
 ## INSTALL RUNNER
 curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | bash
