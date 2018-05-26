@@ -49,9 +49,11 @@ prodenv:
       - production
 	tags:
       - prod
+	dependencies:
+      - testenv
   	script:
       - sudo service gohttp stop
-      - cp -f /usr/lib/go-1.6/src/$REPO_NAME/gohttp /usr/local/bin/
+      - ls -la $CI_PROJECT_DIR
       - sudo service gohttp start
 
 
