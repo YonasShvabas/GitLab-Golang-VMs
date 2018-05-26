@@ -40,6 +40,6 @@ run:
     tags:
       - test
     script:
-      - killall gohttp
-      - cd /usr/lib/go-1.6/src/$REPO_NAME
-      - ./gohttp
+      - service gohttp stop
+      - cp -f /usr/lib/go-1.6/src/$REPO_NAME/gohttp /usr/local/bin/
+      - service gohttp start
