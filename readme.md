@@ -1,15 +1,15 @@
 ## INIT GIT FROM LOCAL FOLDER
-git config --global user.name "Yonas"
-git config --global user.email "blackover@yandex.ru"
-cd "C:\Users\Yonas\go\src\Simple-Golang-HTTP-Server"
-git init
-git remote add origin http://mygitlab.westus2.cloudapp.azure.com/root/Simple-Golang-HTTP-Server.git
-git add .
-git commit -m "Initial commit"
-git push -u origin master
-# to sync files from local to git after edit
-git add .
-git commit -m "v1"
+git config --global user.name "Yonas" 
+git config --global user.email "blackover@yandex.ru" 
+cd "C:\Users\Yonas\go\src\Simple-Golang-HTTP-Server" 
+git init 
+git remote add origin http://mygitlab.westus2.cloudapp.azure.com/root/Simple-Golang-HTTP-Server.git 
+git add . 
+git commit -m "Initial commit" 
+git push -u origin master 
+# to sync files from local to git after edit 
+git add . 
+git commit -m "v1" 
 
 
 ## CREATE .gitlab-ci.yml
@@ -52,22 +52,22 @@ run:
 ```
 
 ## INSTALL RUNNER
-curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | bash
-apt-get install gitlab-runner
-gitlab-runner register
-	...
-touch /usr/local/bin/gohttp
-chown gitlab-runner:gitlab-runner /usr/local/bin/gohttp
+curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | bash 
+apt-get install gitlab-runner 
+gitlab-runner register 
+	... 
+touch /usr/local/bin/gohttp 
+chown gitlab-runner:gitlab-runner /usr/local/bin/gohttp 
 
 ## CREATE SERVICE
-wget https://raw.github.com/frdmn/service-daemons/master/debian -O /etc/init.d/gohttp
-nano /etc/init.d/gohttp
-	...
-chmod +x /etc/init.d/gohttp
-update-rc.d gohttp defaults
-service gohttp start
+wget https://raw.github.com/frdmn/service-daemons/master/debian -O /etc/init.d/gohttp 
+nano /etc/init.d/gohttp 
+	... 
+chmod +x /etc/init.d/gohttp 
+update-rc.d gohttp defaults 
+service gohttp start 
 
-nano /etc/sudoers.d/90-service-gohttp-users
-	gitlab-runner ALL=(ALL) NOPASSWD: /usr/sbin/service gohttp *
-su gitlab-runner
-service gohttp start
+nano /etc/sudoers.d/90-service-gohttp-users 
+	gitlab-runner ALL=(ALL) NOPASSWD: /usr/sbin/service gohttp * 
+su gitlab-runner 
+service gohttp start 
