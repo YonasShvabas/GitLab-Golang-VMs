@@ -1,7 +1,7 @@
 image: golang:latest
 
 variables:
-  REPO_NAME: gohttp
+  REPO_NAME: Simple-Golang-HTTP-Server
 
 before_script:
   - echo $CI_PROJECT_DIR
