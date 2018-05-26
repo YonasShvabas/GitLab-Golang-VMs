@@ -40,8 +40,6 @@ run:
     tags:
       - test
     script:
-      - echo $CI_PROJECT_DIR
-      - echo $LAST_UPLOADED_FILE
-      - killall gohttp/bin
-      - cd /usr/local/src/$REPO_NAME/bin
+      - killall gohttp
+      - cd /usr/lib/go-1.6/src/$REPO_NAME
       - ./gohttp
