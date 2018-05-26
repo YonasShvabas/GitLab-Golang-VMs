@@ -4,10 +4,7 @@ variables:
   REPO_NAME: Simple-Golang-HTTP-Server
 
 before_script:
-  - echo $CI_PROJECT_DIR
   - ln -svf $CI_PROJECT_DIR /usr/lib/go-1.6/src
-# '/usr/local/src/gohttp/Simple-Golang-HTTP-Server' -> '/home/gitlab-runner/builds/4e9c8eeb/0/root/Simple-Golang-HTTP-Server'
-  - echo $REPO_NAME
   - cd /usr/lib/go-1.6/src/$REPO_NAME
 
 stages:
@@ -51,8 +48,10 @@ prodenv:
 	only:
       - production
 	tags:
-      - test
+      - prod
   	script:
-      - echo "Deploy to staging server"
+      - sudo service gohttp stop
+      - cp -f /usr/lib/go-1.6/src/$REPO_NAME/gohttp /usr/local/bin/
+      - sudo service gohttp start
 
 

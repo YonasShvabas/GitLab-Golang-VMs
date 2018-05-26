@@ -10,7 +10,7 @@ git push -u origin master
 # to sync files from local to git after edit  
 git add . 
 git commit -m "v1"  
-
+git push -u origin master  
 
 ## CREATE .gitlab-ci.yml
 ```
@@ -57,6 +57,7 @@ apt-get install gitlab-runner
 gitlab-runner register  
 	...  
 touch /usr/local/bin/gohttp  
+chmod +x /usr/local/bin/gohttp  
 chown gitlab-runner:gitlab-runner /usr/local/bin/gohttp  
 
 ## CREATE SERVICE
@@ -64,10 +65,12 @@ wget https://raw.github.com/frdmn/service-daemons/master/debian -O /etc/init.d/g
 nano /etc/init.d/gohttp  
 	...  
 chmod +x /etc/init.d/gohttp  
+chown gitlab-runner:gitlab-runner /etc/init.d/gohttp   
 update-rc.d gohttp defaults  
-service gohttp start  
-
+ 
+cp -f /etc/sudoers.d/90-cloud-init-users /etc/sudoers.d/90-service-gohttp-users  
 nano /etc/sudoers.d/90-service-gohttp-users  
 	gitlab-runner ALL=(ALL) NOPASSWD: /usr/sbin/service gohttp *  
+usermod -aG sudo gitlab-runner  
 su gitlab-runner  
-service gohttp start  
+sudo service gohttp start  
