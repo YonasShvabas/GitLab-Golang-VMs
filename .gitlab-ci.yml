@@ -4,6 +4,7 @@ variables:
   REPO_NAME: myproject
 
 before_script:
+  - whoami
   - mkdir -p /usr/lib/go-1.6/src/$REPO_NAME
   - cd /usr/lib/go-1.6/src/$REPO_NAME
 
