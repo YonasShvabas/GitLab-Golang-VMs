@@ -41,4 +41,5 @@ run:
       - test
     script:
       - echo $CI_PROJECT_DIR
+      - cd /usr/local/src/$REPO_NAME/
       - bin/gohttp
