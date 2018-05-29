@@ -62,8 +62,10 @@ compile:
     tags:
       - test
     script:
-# create binary
-      - go build -race -ldflags "-extldflags '-static'" -o $CI_PROJECT_DIR/gohttp
+# create staticly linkedbinary
+      - CGO_ENABLED=0 GOOS=linux go build -a -ldflags '-extldflags "-static"' -o $CI_PROJECT_DIR/gohttp
+# create dynamically linked binary
+#      - go build -race -ldflags "-extldflags '-static'" -o $CI_PROJECT_DIR/gohttp
     artifacts:
       paths:
 # get (upload) created binary ("artifact")
