@@ -98,7 +98,7 @@ prodenv:
 ```
 
 ## INSTALL RUNNERS on VMS
-see https://docs.gitlab.com/runner/install/linux-manually.html  
+See https://docs.gitlab.com/runner/install/linux-manually.html  
 curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | bash  
 apt-get install gitlab-runner  
 gitlab-runner register  
@@ -108,7 +108,7 @@ chmod +x /usr/local/bin/gohttp
 chown gitlab-runner:gitlab-runner /usr/local/bin/gohttp  
 
 ## CREATE SERVICE
-To run gohttp binary as a service  
+To run gohttp binary as a service:  
 wget https://raw.github.com/frdmn/service-daemons/master/debian -O /etc/init.d/gohttp  
 nano /etc/init.d/gohttp  
 	...  
