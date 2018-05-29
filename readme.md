@@ -1,8 +1,8 @@
 ## Simple HTTP WebServer written on Golang
 This is simple HTTP WebServer written on Golang to show GitLab continuous integration & deployment processes.  
-Will test and build main.go from any branch and deploy binary in test environment ('TestEnv' VM), and will deploy binary builded on deploy in production environment ('ProdEnv' VM).   
+GitLab will test and build main.go from any branch and deploy binary in test environment ('TestEnv' VMM, all brunches), and will deploy binary builded on deploy in production environment ('ProdEnv' VM, production brunch).   
 
-## INSTALL  GitLab Community edition
+## INSTALL GitLab Community Edition
 See https://about.gitlab.com/installation/  
 Update SMTP setting, see https://docs.gitlab.com/omnibus/settings/smtp.html  
 
@@ -14,7 +14,7 @@ git init
 git remote add origin http://mygitlab.westus2.cloudapp.azure.com/root/Simple-Golang-HTTP-Server.git  
 git git commit -a -m "Initial commit"  
 git push -u origin master  
-# to sync edited locally files from local to remote 
+# to sync locally edited files from local to remote 
 git add . 
 git commit -m "v1"  
 git push -u origin master  
@@ -97,7 +97,8 @@ prodenv:
       - compile
 ```
 
-## INSTALL RUNNER
+## INSTALL RUNNERS on VMS
+# see https://docs.gitlab.com/runner/install/linux-manually.html  
 curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh | bash  
 apt-get install gitlab-runner  
 gitlab-runner register  
@@ -107,6 +108,7 @@ chmod +x /usr/local/bin/gohttp
 chown gitlab-runner:gitlab-runner /usr/local/bin/gohttp  
 
 ## CREATE SERVICE
+# run gohttp binary as a service  
 wget https://raw.github.com/frdmn/service-daemons/master/debian -O /etc/init.d/gohttp  
 nano /etc/init.d/gohttp  
 	...  
